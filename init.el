@@ -21,13 +21,24 @@
 ;; On Macs, it might be a safer bet to use exec-path instead of PATH, for instance: 
 ;; (setq exec-path (append exec-path '("/usr/local/bin")))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; General settings for Emacs ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq auto-save-default nil)
+
+(setq linum-format "%d ")
+(global-linum-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Package settings ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (require 'evil)
 (evil-mode 1)
 
-(setq linum-format "%d ")
-(global-linum-mode 1)
+(global-set-key (kbd "C-x f") 'fiplr-find-file)
 
-(setq auto-save-default nil)
