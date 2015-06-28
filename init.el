@@ -37,8 +37,24 @@
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
+(require 'evil-nerd-commenter)
+(evilnc-default-hotkeys)
+
+(require 'fiplr)
+
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+(evil-leader/set-key
+  "e" 'fiplr-find-file
+  "x" 'execute-extended-command
+  "ll" 'evilnc-comment-or-uncomment-lines
+)
+
 (require 'evil)
 (evil-mode 1)
 
-(global-set-key (kbd "C-x f") 'fiplr-find-file)
-
+(require 'git-gutter)
+(global-git-gutter-mode +1)
+(custom-set-variables
+  '(git-gutter:update-interval 2))
