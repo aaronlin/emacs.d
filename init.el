@@ -29,3 +29,5 @@
 
 (setq linum-format "%d ")
 (global-linum-mode 1)
+
+(setq auto-save-default nil)
