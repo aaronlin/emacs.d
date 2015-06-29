@@ -21,6 +21,27 @@
 ;; On Macs, it might be a safer bet to use exec-path instead of PATH, for instance: 
 ;; (setq exec-path (append exec-path '("/usr/local/bin")))
 
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+    (with-current-buffer
+            (url-retrieve-synchronously
+                     "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+                (goto-char (point-max))
+                    (eval-print-last-sexp)))
+
+(setq my:el-get-packages
+    '(el-get               ; el-get is self-hosting
+      evil
+      evil-leader
+      evil-nerd-commenter
+      fiplr
+      ensime
+      git-gutter))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync my:el-get-packages)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General settings for Emacs ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
