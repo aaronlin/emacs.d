@@ -47,6 +47,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq auto-save-default nil)
+(setq make-backup-files nil)
 
 (setq linum-format "%d ")
 (global-linum-mode 1)
@@ -57,6 +58,9 @@
 
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(electric-indent-mode 0)
+(add-hook 'scala-mode-hook '(lambda ()
+   (local-set-key (kbd "RET") (lambda () (interactive) (newline) (indent-relative-maybe)))))
 
 (require 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
