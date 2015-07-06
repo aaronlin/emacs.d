@@ -52,6 +52,8 @@
 (setq linum-format "%d ")
 (global-linum-mode 1)
 
+(recentf-mode 1)  ; keep a list of recently opened files
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Package settings ;;
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -74,7 +76,7 @@
   "e" 'fiplr-find-file
   "x" 'execute-extended-command
   "ll" 'evilnc-comment-or-uncomment-lines
-)
+  "o" 'recentf-open-files)
 
 (require 'evil)
 (evil-mode 1)
