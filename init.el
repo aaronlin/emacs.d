@@ -52,6 +52,8 @@
 (setq linum-format "%d ")
 (global-linum-mode 1)
 
+(show-paren-mode 1)  ; highlight parentheses
+
 (recentf-mode 1)  ; keep a list of recently opened files
 
 ;;;;;;;;;;;;;;;;;;;;;;
